@@ -1,5 +1,5 @@
 {
-  "name": "gitbook-plugin-versions-select",
+  "name": "gitbook-plugin-versions-minimal",
   "description": "Fork of versions plugin with selected status based on url.",
   "main": "index.js",
   "version": "0.1.1",
@@ -28,15 +28,12 @@
       }
     }
   },
-  "homepage": "https://github.com/prescottprue/gitbook-plugin-versions-select",
+  "homepage": "https://github.com/dskvr/gitbook-plugin-versions-minimal",
   "repository": {
     "type": "git",
-    "url": "https://github.com/prescottprue/gitbook-plugin-versions-select.git"
+    "url": "https://github.com/dskvr/gitbook-plugin-versions-minimal.git"
   },
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/prescottprue/gitbook-plugin-versions-select/issues"
-  },
   "devDependencies": {
     "eslint": "3.11.1",
     "eslint-config-semistandard": "7.0.0",
