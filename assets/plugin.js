@@ -23,7 +23,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
       var $option = $('<option>', {
         'selected': window.location.href.indexOf(version.value) !== -1,
         'value': version.value,
-        'text': version.text
+        'text': version.value
       });
 
       $option.appendTo($select);
@@ -46,23 +46,9 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
     // Fetch version from book.json (legacy plugin)
   function fetchBookOptionsVersions(gitbookConfigURL) {
     $.getJSON(gitbookConfigURL, function (bookConfig) {
-      var options = bookConfig.pluginsConfig.versions.options;
-      updateVersions(options);
+      updateVersions(bookConfig);
     });
   }
-
-    // Fetch gitbook.com versions
-  function fetchBookVersions(type) {
-    $.getJSON(gitbook.state.bookRoot + 'gitbook/api/versions/' + type, function (versions) {
-      updateVersions($.map(versions, function(v) {
-        return {
-          text: v.name,
-          value: v.urls.website,
-          selected: v.current,
-          includeFilepath: pluginConfig.includeFilepath !== false && type !== 'languages'
-        };
-      }));
-    });
   }
 
   gitbook.events.bind('start', function (e, config) {
