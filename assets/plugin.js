@@ -44,7 +44,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
   }
 
     // Fetch version from book.json (legacy plugin)
-  function fetchBookOptionsVersions(gitbookConfigURL) {
+  function fetchVersions(gitbookConfigURL) {
     $.getJSON(gitbookConfigURL, function (bookConfig) {
       updateVersions(bookConfig);
     });
@@ -52,7 +52,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 
   gitbook.events.bind('start', function (e, config) {
     pluginConfig = config.versions || {};
-    fetchBookVersions(pluginConfig.gitbookConfigURL);
+    fetchVersions(pluginConfig.gitbookConfigURL);
   });
 
   gitbook.events.bind('page.change', function () {
