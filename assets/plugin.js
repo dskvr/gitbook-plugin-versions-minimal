@@ -52,11 +52,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 
   gitbook.events.bind('start', function (e, config) {
     pluginConfig = config.versions || {};
-    if (pluginConfig.options) updateVersions(pluginConfig.options);
-
-        // Make sure we have a current book.json
-    if (pluginConfig.gitbookConfigURL) fetchBookOptionsVersions(pluginConfig.gitbookConfigURL);
-    else fetchBookVersions(pluginConfig.type || 'branches');
+    fetchBookVersions(pluginConfig.gitbookConfigURL);
   });
 
   gitbook.events.bind('page.change', function () {
