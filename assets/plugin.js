@@ -6,15 +6,15 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
   // Update the select with a list of versions
   function updateVersions(_versions) {
     versions = _versions || versions;
-    current = $('.versions-select select').val() || current;
+    current = $('.versions-minimal select').val() || current;
 
     // Cleanup existing selector
-    $('.versions-select').remove();
+    $('.versions-minimal').remove();
 
     if (versions.length === 0) return;
 
     var $li = $('<li>', {
-      'class': 'versions-select',
+      'class': 'versions-minimal',
       'html': '<div><select></select></div>'
     });
     var $select = $li.find('select');
@@ -48,7 +48,6 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
     $.getJSON(gitbookConfigURL, function (bookConfig) {
       updateVersions(bookConfig);
     });
-  }
   }
 
   gitbook.events.bind('start', function (e, config) {
