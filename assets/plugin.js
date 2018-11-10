@@ -47,6 +47,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
     // Fetch version from book.json (legacy plugin)
     function fetchBookOptionsVersions(gitbookConfigURL) {
         $.getJSON(gitbookConfigURL, function (bookConfig) {
+            console.log(bookConfig);
             versions = bookConfig;
             var options = bookConfig.pluginsConfig.versions.options;
             updateVersions(options);
