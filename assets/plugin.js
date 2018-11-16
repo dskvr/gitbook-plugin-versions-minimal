@@ -2,12 +2,16 @@
 require(['gitbook', 'jQuery'], function (gitbook, $) {
     var versions = [],
         current  = undefined,
-        pluginConfig = {};
+        pluginConfig = {},
+        DEBUG = true;
 
     // Update the select with a list of versions
     function updateVersions(_versions) {
         versions = _versions || versions;
         current  = $('.versions-select select').val() || current;
+
+        if(DEBUG)
+
 
         // Cleanup existing selector
         $('.versions-select').remove();
@@ -19,6 +23,8 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
             'html': '<div><select></select></div>'
         });
         var $select = $li.find('select');
+
+        console.log("updateVersions", versions, versions.length);
 
         $.each(versions, function(i, version) {
             var $option = $('<option>', {
@@ -72,6 +78,8 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
         pluginConfig = config.versions || {};
         // if (pluginConfig.options) fetchBookOptionsVersions();
 
+        if(DEBUG)
+          console.log("Versions Plugin Config", pluginConfig.gitbookConfigURL)
         // Make sure we have a current book.json
         if (pluginConfig.gitbookConfigURL)  fetchBookOptionsVersions(pluginConfig.gitbookConfigURL);
         // else fetchBookVersions(pluginConfig.type || 'branches');
